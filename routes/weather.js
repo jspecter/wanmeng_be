@@ -1,14 +1,8 @@
 import { Router } from 'express';
+import weatherController from '../controllers/weather';
 
-// import all controllers
-// import SessionController from './app/controllers/SessionController';
+const router = new Router();
 
-const routes = new Router();
+router.get('/', weatherController);
 
-// Add routes
-// routes.get('/', SessionController.store);
-// routes.post('/', SessionController.store);
-// routes.put('/', SessionController.store);
-// routes.delete('/', SessionController.store);
-
-module.exports = routes;
+module.exports = router;
