@@ -5,4 +5,4 @@ const router = new Router();
 
 router.get('/', weatherController);
 
-module.exports = router;
+export default router;

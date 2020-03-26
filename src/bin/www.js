@@ -4,13 +4,14 @@
  * Module dependencies.
  */
 
-require('@babel/register')({
-    presets: ['@babel/env']
-});
+// require('@babel/register')({
+//     presets: ['@babel/env']
+// });
 
-var app = require('../app');
-var debug = require('debug')('backend:server');
-var http = require('http');
+import app from '../app';
+import debug from 'debug';
+import http from 'http';
+import boxen from 'boxen';
 
 /**
  * Get port from environment and store in Express.
@@ -86,5 +87,13 @@ function onError(error) {
 function onListening() {
     var addr = server.address();
     var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
+    console.log(
+        boxen(`服务器运行在：http://localhost:${app.get('port')}`, {
+            padding: 1,
+            margin: 1,
+            borderColor: 'blue',
+            borderStyle: 'double'
+        })
+    );
     debug('Listening on ' + bind);
 }
